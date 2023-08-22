@@ -20,17 +20,17 @@ import 'package:efood_multivendor_driver/util/images.dart';
 import 'package:efood_multivendor_driver/view/base/confirmation_dialog.dart';
 import 'package:efood_multivendor_driver/view/base/custom_alert_dialog.dart';
 import 'package:efood_multivendor_driver/view/base/custom_snackbar.dart';
+import 'package:geocoding/geocoding.dart' as geo_coding;
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
-import 'package:geocoding/geocoding.dart' as geo_coding;
+import 'package:image_picker/image_picker.dart';
 
 class AuthController extends GetxController implements GetxService {
   final AuthRepo authRepo;
   AuthController({required this.authRepo}) {
-   _notification = authRepo.isNotificationActive();
+    _notification = authRepo.isNotificationActive();
   }
 
   bool _isLoading = false;
@@ -101,9 +101,9 @@ class AuthController extends GetxController implements GetxService {
   bool get lowercaseCheck => _lowercaseCheck;
   bool get spatialCheck => _spatialCheck;
 
-  void showHidePass({bool isUpdate = true}){
-    _showPassView = ! _showPassView;
-    if(isUpdate) {
+  void showHidePass({bool isUpdate = true}) {
+    _showPassView = !_showPassView;
+    if (isUpdate) {
       update();
     }
   }
@@ -131,19 +131,24 @@ class AuthController extends GetxController implements GetxService {
       _profileModel = ProfileModel.fromJson(response.body);
       if (_profileModel!.active == 1) {
         LocationPermission permission = await Geolocator.checkPermission();
-        if(permission == LocationPermission.denied || permission == LocationPermission.deniedForever
-            || (GetPlatform.isIOS ? false : permission == LocationPermission.whileInUse)) {
-          Get.dialog(ConfirmationDialog(
-            icon: Images.locationPermission,
-            iconSize: 200,
-            hasCancel: false,
-            description: 'this_app_collects_location_data'.tr,
-            onYesPressed: () {
-              Get.back();
-              _checkPermission(() => startLocationRecord());
-            },
-          ), barrierDismissible: false);
-        }else {
+        if (permission == LocationPermission.denied ||
+            permission == LocationPermission.deniedForever ||
+            (GetPlatform.isIOS
+                ? false
+                : permission == LocationPermission.whileInUse)) {
+          Get.dialog(
+              ConfirmationDialog(
+                icon: Images.locationPermission,
+                iconSize: 200,
+                hasCancel: false,
+                description: 'this_app_collects_location_data'.tr,
+                onYesPressed: () {
+                  Get.back();
+                  _checkPermission(() => startLocationRecord());
+                },
+              ),
+              barrierDismissible: false);
+        } else {
           startLocationRecord();
         }
       } else {
@@ -155,10 +160,12 @@ class AuthController extends GetxController implements GetxService {
     update();
   }
 
-  Future<bool> updateUserInfo(ProfileModel updateUserModel, String token) async {
+  Future<bool> updateUserInfo(
+      ProfileModel updateUserModel, String token) async {
     _isLoading = true;
     update();
-    http.StreamedResponse response = await authRepo.updateProfile(updateUserModel, _pickedFile, token);
+    http.StreamedResponse response =
+        await authRepo.updateProfile(updateUserModel, _pickedFile, token);
     _isLoading = false;
     bool isSuccess;
     if (response.statusCode == 200) {
@@ -168,7 +175,9 @@ class AuthController extends GetxController implements GetxService {
       showCustomSnackBar(message, isError: false);
       isSuccess = true;
     } else {
-      ApiChecker.checkApi(Response(statusCode: response.statusCode, statusText: '${response.statusCode} ${response.reasonPhrase}'));
+      ApiChecker.checkApi(Response(
+          statusCode: response.statusCode,
+          statusText: '${response.statusCode} ${response.reasonPhrase}'));
       isSuccess = false;
     }
     update();
@@ -180,11 +189,13 @@ class AuthController extends GetxController implements GetxService {
     update();
   }
 
-  Future<bool> changePassword(ProfileModel updatedUserModel, String password) async {
+  Future<bool> changePassword(
+      ProfileModel updatedUserModel, String password) async {
     _isLoading = true;
     update();
     bool isSuccess;
-    Response response = await authRepo.changePassword(updatedUserModel, password);
+    Response response =
+        await authRepo.changePassword(updatedUserModel, password);
     _isLoading = false;
     if (response.statusCode == 200) {
       String? message = response.body["message"];
@@ -200,7 +211,7 @@ class AuthController extends GetxController implements GetxService {
 
   Future<bool> updateActiveStatus({int? shiftId, bool isUpdate = false}) async {
     _shiftLoading = true;
-    if(isUpdate){
+    if (isUpdate) {
       update();
     }
     Response response = await authRepo.updateActiveStatus(shiftId: shiftId);
@@ -211,19 +222,24 @@ class AuthController extends GetxController implements GetxService {
       isSuccess = true;
       if (_profileModel!.active == 1) {
         LocationPermission permission = await Geolocator.checkPermission();
-        if(permission == LocationPermission.denied || permission == LocationPermission.deniedForever
-            || (GetPlatform.isIOS ? false : permission == LocationPermission.whileInUse)) {
-          Get.dialog(ConfirmationDialog(
-            icon: Images.locationPermission,
-            iconSize: 200,
-            hasCancel: false,
-            description: 'this_app_collects_location_data'.tr,
-            onYesPressed: () {
-              Get.back();
-              _checkPermission(() => startLocationRecord());
-            },
-          ), barrierDismissible: false);
-        }else {
+        if (permission == LocationPermission.denied ||
+            permission == LocationPermission.deniedForever ||
+            (GetPlatform.isIOS
+                ? false
+                : permission == LocationPermission.whileInUse)) {
+          Get.dialog(
+              ConfirmationDialog(
+                icon: Images.locationPermission,
+                iconSize: 200,
+                hasCancel: false,
+                description: 'this_app_collects_location_data'.tr,
+                onYesPressed: () {
+                  Get.back();
+                  _checkPermission(() => startLocationRecord());
+                },
+              ),
+              barrierDismissible: false);
+        } else {
           startLocationRecord();
         }
       } else {
@@ -256,23 +272,30 @@ class AuthController extends GetxController implements GetxService {
     customPrint('--------------Adding location');
     final Position locationResult = await Geolocator.getCurrentPosition();
 
-    customPrint('This is current Location: Latitude: ${locationResult.latitude} Longitude: ${locationResult.longitude}');
+    customPrint(
+        'This is current Location: Latitude: ${locationResult.latitude} Longitude: ${locationResult.longitude}');
     String address;
-    try{
-      List<geo_coding.Placemark> addresses = await geo_coding.placemarkFromCoordinates(locationResult.latitude, locationResult.longitude);
+    try {
+      List<geo_coding.Placemark> addresses =
+          await geo_coding.placemarkFromCoordinates(
+              locationResult.latitude, locationResult.longitude);
       geo_coding.Placemark placeMark = addresses.first;
-      address = '${placeMark.name}, ${placeMark.subAdministrativeArea}, ${placeMark.isoCountryCode}';
-    }catch(e) {
+      address =
+          '${placeMark.name}, ${placeMark.subAdministrativeArea}, ${placeMark.isoCountryCode}';
+    } catch (e) {
       address = 'Unknown Location Found';
     }
     RecordLocationBody recordLocation = RecordLocationBody(
-      location: address, latitude: locationResult.latitude, longitude: locationResult.longitude,
+      location: address,
+      latitude: locationResult.latitude,
+      longitude: locationResult.longitude,
     );
 
     Response response = await authRepo.recordLocation(recordLocation);
-    if(response.statusCode == 200) {
-      customPrint('--------------Added record Lat: ${recordLocation.latitude} Lng: ${recordLocation.longitude} Loc: ${recordLocation.location}');
-    }else {
+    if (response.statusCode == 200) {
+      customPrint(
+          '--------------Added record Lat: ${recordLocation.latitude} Lng: ${recordLocation.longitude} Loc: ${recordLocation.location}');
+    } else {
       customPrint('--------------Failed record');
     }
   }
@@ -312,10 +335,12 @@ class AuthController extends GetxController implements GetxService {
     return responseModel;
   }
 
-  Future<ResponseModel> resetPassword(String? resetToken, String phone, String password, String confirmPassword) async {
+  Future<ResponseModel> resetPassword(String? resetToken, String phone,
+      String password, String confirmPassword) async {
     _isLoading = true;
     update();
-    Response response = await authRepo.resetPassword(resetToken, phone, password, confirmPassword);
+    Response response = await authRepo.resetPassword(
+        resetToken, phone, password, confirmPassword);
     ResponseModel responseModel;
     if (response.statusCode == 200) {
       responseModel = ResponseModel(true, response.body["message"]);
@@ -336,7 +361,6 @@ class AuthController extends GetxController implements GetxService {
     update();
   }
 
-
   bool _isActiveRememberMe = false;
 
   bool get isActiveRememberMe => _isActiveRememberMe;
@@ -354,7 +378,8 @@ class AuthController extends GetxController implements GetxService {
     return await authRepo.clearSharedData();
   }
 
-  void saveUserNumberAndPassword(String number, String password, String countryCode) {
+  void saveUserNumberAndPassword(
+      String number, String password, String countryCode) {
     authRepo.saveUserNumberAndPassword(number, password, countryCode);
   }
 
@@ -393,20 +418,30 @@ class AuthController extends GetxController implements GetxService {
   void _checkPermission(Function callback) async {
     LocationPermission permission = await Geolocator.requestPermission();
     permission = await Geolocator.checkPermission();
-    if(permission == LocationPermission.denied
-        || (GetPlatform.isIOS ? false : permission == LocationPermission.whileInUse)) {
-      Get.dialog(CustomAlertDialog(description: 'you_denied'.tr, onOkPressed: () async {
-        Get.back();
-        await Geolocator.requestPermission();
-        _checkPermission(callback);
-      }), barrierDismissible: false);
-    }else if(permission == LocationPermission.deniedForever) {
-      Get.dialog(CustomAlertDialog(description: 'you_denied_forever'.tr, onOkPressed: () async {
-        Get.back();
-        await Geolocator.openAppSettings();
-        _checkPermission(callback);
-      }), barrierDismissible: false);
-    }else {
+    if (permission == LocationPermission.denied ||
+        (GetPlatform.isIOS
+            ? false
+            : permission == LocationPermission.whileInUse)) {
+      Get.dialog(
+          CustomAlertDialog(
+              description: 'you_denied'.tr,
+              onOkPressed: () async {
+                Get.back();
+                await Geolocator.requestPermission();
+                _checkPermission(callback);
+              }),
+          barrierDismissible: false);
+    } else if (permission == LocationPermission.deniedForever) {
+      Get.dialog(
+          CustomAlertDialog(
+              description: 'you_denied_forever'.tr,
+              onOkPressed: () async {
+                Get.back();
+                await Geolocator.openAppSettings();
+                _checkPermission(callback);
+              }),
+          barrierDismissible: false);
+    } else {
       callback();
     }
   }
@@ -421,7 +456,7 @@ class AuthController extends GetxController implements GetxService {
       Get.find<AuthController>().clearSharedData();
       Get.find<AuthController>().stopLocationRecord();
       Get.offAllNamed(RouteHelper.getSignInRoute());
-    }else{
+    } else {
       Get.back();
       ApiChecker.checkApi(response);
     }
@@ -429,12 +464,12 @@ class AuthController extends GetxController implements GetxService {
 
   void setDMTypeIndex(int? dmType, bool notify) {
     _dmTypeIndex = dmType!;
-    if(notify) {
+    if (notify) {
       update();
     }
   }
 
-  void removeDmImage(){
+  void removeDmImage() {
     _pickedImage = null;
     update();
   }
@@ -455,8 +490,12 @@ class AuthController extends GetxController implements GetxService {
       _zoneList = [];
       response.body.forEach((zone) => _zoneList!.add(ZoneModel.fromJson(zone)));
       setLocation(LatLng(
-        double.parse(Get.find<SplashController>().configModel!.defaultLocation!.lat ?? '0'),
-        double.parse(Get.find<SplashController>().configModel!.defaultLocation!.lng ?? '0'),
+        double.parse(
+            Get.find<SplashController>().configModel!.defaultLocation!.lat ??
+                '0'),
+        double.parse(
+            Get.find<SplashController>().configModel!.defaultLocation!.lng ??
+                '0'),
       ));
     } else {
       ApiChecker.checkApi(response);
@@ -470,7 +509,8 @@ class AuthController extends GetxController implements GetxService {
     Response response = await authRepo.getShiftList();
     if (response.statusCode == 200) {
       _shifts = [];
-      response.body.forEach((shift) => _shifts!.add(ShiftModel.fromJson(shift)));
+      response.body
+          .forEach((shift) => _shifts!.add(ShiftModel.fromJson(shift)));
     } else {
       ApiChecker.checkApi(response);
     }
@@ -478,64 +518,68 @@ class AuthController extends GetxController implements GetxService {
     update();
   }
 
-  void setShiftId(int? id){
+  void setShiftId(int? id) {
     _shiftId = id;
     update();
   }
 
   void setLocation(LatLng location) async {
     ZoneResponseModel response = await getZone(
-      location.latitude.toString(), location.longitude.toString(), false,
+      location.latitude.toString(),
+      location.longitude.toString(),
+      false,
     );
-    if(response.isSuccess && response.zoneIds.isNotEmpty) {
+    if (response.isSuccess && response.zoneIds.isNotEmpty) {
       _restaurantLocation = location;
       _zoneIds = response.zoneIds;
-      for(int index=0; index<_zoneList!.length; index++) {
-        if(_zoneIds!.contains(_zoneList![index].id)) {
+      for (int index = 0; index < _zoneList!.length; index++) {
+        if (_zoneIds!.contains(_zoneList![index].id)) {
           _selectedZoneIndex = index;
           break;
         }
       }
-    }else {
+    } else {
       _restaurantLocation = null;
       _zoneIds = null;
     }
     update();
   }
 
-  Future<ZoneResponseModel> getZone(String lat, String long, bool markerLoad, {bool updateInAddress = false}) async {
-    if(markerLoad) {
+  Future<ZoneResponseModel> getZone(String lat, String long, bool markerLoad,
+      {bool updateInAddress = false}) async {
+    if (markerLoad) {
       _loading = true;
-    }else {
+    } else {
       _isLoading = true;
     }
-    if(!updateInAddress){
+    if (!updateInAddress) {
       update();
     }
     ZoneResponseModel responseModel;
     Response response = await authRepo.getZone(lat, long);
-    if(response.statusCode == 200) {
+    if (response.statusCode == 200) {
       _inZone = true;
       _zoneID = int.parse(jsonDecode(response.body['zone_id'])[0].toString());
       List<int> zoneIds = [];
-      jsonDecode(response.body['zone_id']).forEach((zoneId){
+      jsonDecode(response.body['zone_id']).forEach((zoneId) {
         zoneIds.add(int.parse(zoneId.toString()));
       });
       List<ZoneData> zoneData = [];
-      response.body['zone_data'].forEach((zone) => zoneData.add(ZoneData.fromJson(zone)));
-      responseModel = ZoneResponseModel(true, '' , zoneIds, zoneData);
-      if(updateInAddress) {
+      response.body['zone_data']
+          .forEach((zone) => zoneData.add(ZoneData.fromJson(zone)));
+      responseModel = ZoneResponseModel(true, '', zoneIds, zoneData);
+      if (updateInAddress) {
         AddressModel address = getUserAddress()!;
         address.zoneData = zoneData;
         saveUserAddress(address);
       }
-    }else {
+    } else {
       _inZone = false;
       responseModel = ZoneResponseModel(false, response.statusText, [], []);
     }
-    if(markerLoad) {
+    if (markerLoad) {
       _loading = false;
-    }else {
+    } else {
       _isLoading = false;
     }
     update();
@@ -545,8 +589,9 @@ class AuthController extends GetxController implements GetxService {
   AddressModel? getUserAddress() {
     AddressModel? addressModel;
     try {
-      addressModel = AddressModel.fromJson(jsonDecode(authRepo.getUserAddress()!));
-    }catch(_) {}
+      addressModel =
+          AddressModel.fromJson(jsonDecode(authRepo.getUserAddress()!));
+    } catch (_) {}
     return addressModel;
   }
 
@@ -557,28 +602,32 @@ class AuthController extends GetxController implements GetxService {
 
   void setIdentityTypeIndex(String? identityType, bool notify) {
     int index0 = 0;
-    for(int index=0; index<_identityTypeList.length; index++) {
-      if(_identityTypeList[index] == identityType) {
+    for (int index = 0; index < _identityTypeList.length; index++) {
+      if (_identityTypeList[index] == identityType) {
         index0 = index;
         break;
       }
     }
     _identityTypeIndex = index0;
-    if(notify) {
+    if (notify) {
       update();
     }
   }
 
   void pickDmImage(bool isLogo, bool isRemove) async {
-    if(isRemove) {
+    if (isRemove) {
       _pickedImage = null;
       _pickedIdentities = [];
-    }else {
+    } else {
       if (isLogo) {
-        _pickedImage = await ImagePicker().pickImage(source: ImageSource.gallery);
+        _pickedImage =
+            await ImagePicker().pickImage(source: ImageSource.gallery);
+        print("jass ${_pickedImage!.path}");
       } else {
-        XFile? xFile = await ImagePicker().pickImage(source: ImageSource.gallery);
-        if(xFile != null) {
+        XFile? xFile =
+            await ImagePicker().pickImage(source: ImageSource.gallery);
+        if (xFile != null) {
+          print("jass ${_pickedImage!.path}");
           _pickedIdentities.add(xFile);
         }
       }
@@ -596,13 +645,15 @@ class AuthController extends GetxController implements GetxService {
     update();
     List<MultipartBody> multiParts = [];
     multiParts.add(MultipartBody('image', _pickedImage));
-    for(XFile file in _pickedIdentities) {
+    for (XFile file in _pickedIdentities) {
       multiParts.add(MultipartBody('identity_image[]', file));
     }
-    Response response = await authRepo.registerDeliveryMan(deliveryManBody, multiParts);
+    Response response =
+        await authRepo.registerDeliveryMan(deliveryManBody, multiParts);
     if (response.statusCode == 200) {
       Get.offAllNamed(RouteHelper.getSignInRoute());
-      showCustomSnackBar('delivery_man_registration_successful'.tr, isError: false);
+      showCustomSnackBar('delivery_man_registration_successful'.tr,
+          isError: false);
     } else {
       ApiChecker.checkApi(response);
     }
@@ -616,9 +667,10 @@ class AuthController extends GetxController implements GetxService {
       _vehicles = [];
       _vehicleIds = [];
       _vehicleIds!.add(0);
-      response.body.forEach((vehicle) => _vehicles!.add(VehicleModel.fromJson(vehicle)));
-      response.body.forEach((vehicle) => _vehicleIds!.add(VehicleModel.fromJson(vehicle).id));
-
+      response.body
+          .forEach((vehicle) => _vehicles!.add(VehicleModel.fromJson(vehicle)));
+      response.body.forEach(
+          (vehicle) => _vehicleIds!.add(VehicleModel.fromJson(vehicle).id));
     } else {
       ApiChecker.checkApi(response);
     }
@@ -627,7 +679,7 @@ class AuthController extends GetxController implements GetxService {
 
   void setVehicleIndex(int? index, bool notify) {
     _vehicleIndex = index;
-    if(notify) {
+    if (notify) {
       update();
     }
   }
@@ -639,33 +691,30 @@ class AuthController extends GetxController implements GetxService {
     _lowercaseCheck = false;
     _spatialCheck = false;
 
-    if(pass.length > 7){
+    if (pass.length > 7) {
       _lengthCheck = true;
     }
-    if(pass.contains(RegExp(r'[a-z]'))){
+    if (pass.contains(RegExp(r'[a-z]'))) {
       _lowercaseCheck = true;
     }
-    if(pass.contains(RegExp(r'[A-Z]'))){
+    if (pass.contains(RegExp(r'[A-Z]'))) {
       _uppercaseCheck = true;
     }
-    if(pass.contains(RegExp(r'[ .!@#$&*~^%]'))){
+    if (pass.contains(RegExp(r'[ .!@#$&*~^%]'))) {
       _spatialCheck = true;
     }
-    if(pass.contains(RegExp(r'[\d+]'))){
+    if (pass.contains(RegExp(r'[\d+]'))) {
       _numberCheck = true;
     }
-    if(isUpdate) {
+    if (isUpdate) {
       update();
     }
   }
 
-
-  void dmStatusChange(double value, {bool isUpdate = true}){
+  void dmStatusChange(double value, {bool isUpdate = true}) {
     _dmStatus = value;
-    if(isUpdate) {
+    if (isUpdate) {
       update();
     }
   }
-
-
 }
