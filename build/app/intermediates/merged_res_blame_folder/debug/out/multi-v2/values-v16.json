@@ -1,0 +1,38 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.d2home.d2deliveryman.app-mergeDebugResources-45:/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\js093\\.gradle\\caches\\transforms-3\\102f4ed3ab9d727692660223f33ab9d0\\transformed\\appcompat-1.4.1\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "121",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "289"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\js093\\.gradle\\caches\\transforms-3\\d4d884fe032a1503dd3f3f102f17e099\\transformed\\core-1.10.1\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                }
+            ]
+        }
+    ]
+}

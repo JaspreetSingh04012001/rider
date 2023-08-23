@@ -1,0 +1,64 @@
+com.d2home.d2deliveryman.app-jetified-appcompat-resources-1.4.1-0 C:\Users\js093\.gradle\caches\transforms-3\0409a5343d91de23da26fb72ade75c85\transformed\jetified-appcompat-resources-1.4.1\res
+com.d2home.d2deliveryman.app-jetified-firebase-common-20.2.0-1 C:\Users\js093\.gradle\caches\transforms-3\07ac3f3742f0869b265ad57994c84a32\transformed\jetified-firebase-common-20.2.0\res
+com.d2home.d2deliveryman.app-jetified-play-services-basement-18.1.0-2 C:\Users\js093\.gradle\caches\transforms-3\09d8e2f026196382dddaa7401308c194\transformed\jetified-play-services-basement-18.1.0\res
+com.d2home.d2deliveryman.app-appcompat-1.4.1-3 C:\Users\js093\.gradle\caches\transforms-3\102f4ed3ab9d727692660223f33ab9d0\transformed\appcompat-1.4.1\res
+com.d2home.d2deliveryman.app-constraintlayout-2.1.3-4 C:\Users\js093\.gradle\caches\transforms-3\12ebff295fcd9eaa36668956ac473217\transformed\constraintlayout-2.1.3\res
+com.d2home.d2deliveryman.app-jetified-lifecycle-viewmodel-savedstate-2.6.1-5 C:\Users\js093\.gradle\caches\transforms-3\185563766bcd834fa9e907cd175837ab\transformed\jetified-lifecycle-viewmodel-savedstate-2.6.1\res
+com.d2home.d2deliveryman.app-cardview-1.0.0-6 C:\Users\js093\.gradle\caches\transforms-3\248a883faf9795fa2327ffd38ebdc457\transformed\cardview-1.0.0\res
+com.d2home.d2deliveryman.app-jetified-firebase-messaging-23.1.0-7 C:\Users\js093\.gradle\caches\transforms-3\33bd5214d56c698478cd055144e4afdf\transformed\jetified-firebase-messaging-23.1.0\res
+com.d2home.d2deliveryman.app-material-1.5.0-8 C:\Users\js093\.gradle\caches\transforms-3\365a88286106b97b1c50fde38d63847b\transformed\material-1.5.0\res
+com.d2home.d2deliveryman.app-jetified-activity-1.7.2-9 C:\Users\js093\.gradle\caches\transforms-3\3b247a8ffe1f4151c842ce8ee0ea67f9\transformed\jetified-activity-1.7.2\res
+com.d2home.d2deliveryman.app-transition-1.2.0-10 C:\Users\js093\.gradle\caches\transforms-3\533e8d34a5b1fd3e05923268d9edde52\transformed\transition-1.2.0\res
+com.d2home.d2deliveryman.app-jetified-commons-0.9.6.0-11 C:\Users\js093\.gradle\caches\transforms-3\594bbb71d79af753f857eef5c675baf2\transformed\jetified-commons-0.9.6.0\res
+com.d2home.d2deliveryman.app-jetified-annotation-experimental-1.3.0-12 C:\Users\js093\.gradle\caches\transforms-3\5a289b8fa548cce8690d3fdcc5c2754d\transformed\jetified-annotation-experimental-1.3.0\res
+com.d2home.d2deliveryman.app-jetified-viewpager2-1.0.0-13 C:\Users\js093\.gradle\caches\transforms-3\663e08ba906d30a87850348c766f8142\transformed\jetified-viewpager2-1.0.0\res
+com.d2home.d2deliveryman.app-drawerlayout-1.1.1-14 C:\Users\js093\.gradle\caches\transforms-3\67b70b83ba8d2f014e2d13f42370d954\transformed\drawerlayout-1.1.1\res
+com.d2home.d2deliveryman.app-jetified-core-0.9.6.0-15 C:\Users\js093\.gradle\caches\transforms-3\686d97e9165bee41cc3f8d8c68473d02\transformed\jetified-core-0.9.6.0\res
+com.d2home.d2deliveryman.app-lifecycle-livedata-2.6.1-16 C:\Users\js093\.gradle\caches\transforms-3\70811bf91406b633ab17f92c5a7ff928\transformed\lifecycle-livedata-2.6.1\res
+com.d2home.d2deliveryman.app-jetified-emoji2-views-helper-1.0.0-17 C:\Users\js093\.gradle\caches\transforms-3\765f6e9c7edb03f4386bd8bca43f2e85\transformed\jetified-emoji2-views-helper-1.0.0\res
+com.d2home.d2deliveryman.app-recyclerview-1.2.1-18 C:\Users\js093\.gradle\caches\transforms-3\892e9dc1a9fc1d478dd4fa41b7ffdeee\transformed\recyclerview-1.2.1\res
+com.d2home.d2deliveryman.app-jetified-savedstate-1.2.1-19 C:\Users\js093\.gradle\caches\transforms-3\8c7c0ef0d546aa061c1835a2100936a7\transformed\jetified-savedstate-1.2.1\res
+com.d2home.d2deliveryman.app-fragment-1.3.6-20 C:\Users\js093\.gradle\caches\transforms-3\8dd929ba80bf69e628fc8b326e8a8dae\transformed\fragment-1.3.6\res
+com.d2home.d2deliveryman.app-jetified-emoji2-1.0.0-21 C:\Users\js093\.gradle\caches\transforms-3\92de3382290d0d28db0736c39f0a3bd6\transformed\jetified-emoji2-1.0.0\res
+com.d2home.d2deliveryman.app-media-1.1.0-22 C:\Users\js093\.gradle\caches\transforms-3\97c12ab74df84c2b67dd73d931f583e5\transformed\media-1.1.0\res
+com.d2home.d2deliveryman.app-jetified-lifecycle-process-2.6.1-23 C:\Users\js093\.gradle\caches\transforms-3\a3c34dffddb30e261c39bbf2d8f42eeb\transformed\jetified-lifecycle-process-2.6.1\res
+com.d2home.d2deliveryman.app-jetified-play-services-maps-18.1.0-24 C:\Users\js093\.gradle\caches\transforms-3\b4c7db2629d6325d0d285195b59b7c05\transformed\jetified-play-services-maps-18.1.0\res
+com.d2home.d2deliveryman.app-jetified-startup-runtime-1.1.1-25 C:\Users\js093\.gradle\caches\transforms-3\b820e9c69121fb8e36039ac84a5fc9b9\transformed\jetified-startup-runtime-1.1.1\res
+com.d2home.d2deliveryman.app-lifecycle-runtime-2.6.1-26 C:\Users\js093\.gradle\caches\transforms-3\c78e71235def5e59e2cb7ab06a105b47\transformed\lifecycle-runtime-2.6.1\res
+com.d2home.d2deliveryman.app-core-1.10.1-27 C:\Users\js093\.gradle\caches\transforms-3\d4d884fe032a1503dd3f3f102f17e099\transformed\core-1.10.1\res
+com.d2home.d2deliveryman.app-lifecycle-livedata-core-2.6.1-28 C:\Users\js093\.gradle\caches\transforms-3\d67d31115089af90a5a4c3754033d0fc\transformed\lifecycle-livedata-core-2.6.1\res
+com.d2home.d2deliveryman.app-jetified-core-ktx-1.10.1-29 C:\Users\js093\.gradle\caches\transforms-3\e8119ecce677a15095f6660087a76e5a\transformed\jetified-core-ktx-1.10.1\res
+com.d2home.d2deliveryman.app-core-runtime-2.2.0-30 C:\Users\js093\.gradle\caches\transforms-3\e89d2f8fc7279aac437cf3591bf19c92\transformed\core-runtime-2.2.0\res
+com.d2home.d2deliveryman.app-lifecycle-viewmodel-2.6.1-31 C:\Users\js093\.gradle\caches\transforms-3\e8a514b81c0d4bd77ef549b7ba6422c5\transformed\lifecycle-viewmodel-2.6.1\res
+com.d2home.d2deliveryman.app-jetified-profileinstaller-1.3.0-32 C:\Users\js093\.gradle\caches\transforms-3\ead14d1db6ba2c58a3916eed8af4c8ea\transformed\jetified-profileinstaller-1.3.0\res
+com.d2home.d2deliveryman.app-jetified-library-1.4.2-33 C:\Users\js093\.gradle\caches\transforms-3\eb8468508fe5f08b4eda9071e789490d\transformed\jetified-library-1.4.2\res
+com.d2home.d2deliveryman.app-jetified-window-java-1.0.0-beta04-34 C:\Users\js093\.gradle\caches\transforms-3\f1a49f07c1a9a467e19cde904a82801c\transformed\jetified-window-java-1.0.0-beta04\res
+com.d2home.d2deliveryman.app-jetified-window-1.0.0-beta04-35 C:\Users\js093\.gradle\caches\transforms-3\f6a28c768c09ad5fecd7c74ef6337906\transformed\jetified-window-1.0.0-beta04\res
+com.d2home.d2deliveryman.app-localbroadcastmanager-1.1.0-36 C:\Users\js093\.gradle\caches\transforms-3\fc2de15c4e67e517342a8edc3309a3ce\transformed\localbroadcastmanager-1.1.0\res
+com.d2home.d2deliveryman.app-jetified-play-services-base-18.1.0-37 C:\Users\js093\.gradle\caches\transforms-3\fd75b8ff263a521adc61ba0b4a2407ee\transformed\jetified-play-services-base-18.1.0\res
+com.d2home.d2deliveryman.app-coordinatorlayout-1.1.0-38 C:\Users\js093\.gradle\caches\transforms-3\ff881686ce968a7d53449a228cd75e4b\transformed\coordinatorlayout-1.1.0\res
+com.d2home.d2deliveryman.app-debug-39 D:\D2Home Rider\rider\rider\android\app\src\debug\res
+com.d2home.d2deliveryman.app-main-40 D:\D2Home Rider\rider\rider\android\app\src\main\res
+com.d2home.d2deliveryman.app-google-services-41 D:\D2Home Rider\rider\rider\build\app\generated\res\google-services\debug
+com.d2home.d2deliveryman.app-pngs-42 D:\D2Home Rider\rider\rider\build\app\generated\res\pngs\debug
+com.d2home.d2deliveryman.app-resValues-43 D:\D2Home Rider\rider\rider\build\app\generated\res\resValues\debug
+com.d2home.d2deliveryman.app-rs-44 D:\D2Home Rider\rider\rider\build\app\generated\res\rs\debug
+com.d2home.d2deliveryman.app-mergeDebugResources-45 D:\D2Home Rider\rider\rider\build\app\intermediates\incremental\debug\mergeDebugResources\merged.dir
+com.d2home.d2deliveryman.app-mergeDebugResources-46 D:\D2Home Rider\rider\rider\build\app\intermediates\incremental\debug\mergeDebugResources\stripped.dir
+com.d2home.d2deliveryman.app-merged_res-47 D:\D2Home Rider\rider\rider\build\app\intermediates\merged_res\debug
+com.d2home.d2deliveryman.app-packaged_res-48 D:\D2Home Rider\rider\rider\build\audioplayers\intermediates\packaged_res\debug
+com.d2home.d2deliveryman.app-packaged_res-49 D:\D2Home Rider\rider\rider\build\connectivity\intermediates\packaged_res\debug
+com.d2home.d2deliveryman.app-packaged_res-50 D:\D2Home Rider\rider\rider\build\disable_battery_optimization\intermediates\packaged_res\debug
+com.d2home.d2deliveryman.app-packaged_res-51 D:\D2Home Rider\rider\rider\build\firebase_core\intermediates\packaged_res\debug
+com.d2home.d2deliveryman.app-packaged_res-52 D:\D2Home Rider\rider\rider\build\firebase_messaging\intermediates\packaged_res\debug
+com.d2home.d2deliveryman.app-packaged_res-53 D:\D2Home Rider\rider\rider\build\flutter_local_notifications\intermediates\packaged_res\debug
+com.d2home.d2deliveryman.app-packaged_res-54 D:\D2Home Rider\rider\rider\build\flutter_plugin_android_lifecycle\intermediates\packaged_res\debug
+com.d2home.d2deliveryman.app-packaged_res-55 D:\D2Home Rider\rider\rider\build\geocoding\intermediates\packaged_res\debug
+com.d2home.d2deliveryman.app-packaged_res-56 D:\D2Home Rider\rider\rider\build\geolocator_android\intermediates\packaged_res\debug
+com.d2home.d2deliveryman.app-packaged_res-57 D:\D2Home Rider\rider\rider\build\google_maps_flutter_android\intermediates\packaged_res\debug
+com.d2home.d2deliveryman.app-packaged_res-58 D:\D2Home Rider\rider\rider\build\image_picker_android\intermediates\packaged_res\debug
+com.d2home.d2deliveryman.app-packaged_res-59 D:\D2Home Rider\rider\rider\build\path_provider_android\intermediates\packaged_res\debug
+com.d2home.d2deliveryman.app-packaged_res-60 D:\D2Home Rider\rider\rider\build\phone_number\intermediates\packaged_res\debug
+com.d2home.d2deliveryman.app-packaged_res-61 D:\D2Home Rider\rider\rider\build\shared_preferences_android\intermediates\packaged_res\debug
+com.d2home.d2deliveryman.app-packaged_res-62 D:\D2Home Rider\rider\rider\build\url_launcher_android\intermediates\packaged_res\debug
+com.d2home.d2deliveryman.app-packaged_res-63 D:\D2Home Rider\rider\rider\build\vibration\intermediates\packaged_res\debug

@@ -58,7 +58,7 @@ class _DeliveryManRegistrationScreenState
     if (Get.find<AuthController>().showPassView) {
       Get.find<AuthController>().showHidePass(isUpdate: false);
     }
-    Get.find<AuthController>().pickDmImage(false, true);
+    Get.find<AuthController>().pickDmImage(false, true, null);
     Get.find<AuthController>().setIdentityTypeIndex(
         Get.find<AuthController>().identityTypeList[0], false);
     Get.find<AuthController>().setDMTypeIndex(-1, false);
@@ -85,6 +85,45 @@ class _DeliveryManRegistrationScreenState
         List<DropdownItem<int>> vehicleList = [];
         List<DropdownItem<int>> dmTypeList = [];
         List<DropdownItem<int>> identityTypeList = [];
+        void y(
+          bool isLogo,
+          bool isRemove,
+        ) {
+          showDialog(
+              barrierDismissible: true,
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15))),
+                  content: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ListTile(
+                        leading: const Icon(Icons.photo_library),
+                        title: Text('pick_from_gallery'.tr),
+                        onTap: () {
+                          authController.pickDmImage(
+                              isLogo, isRemove, ImageSource.gallery);
+                          Navigator.pop(context);
+                        },
+                        // onTap: () => _getImage(context, ImageSource.gallery),
+                      ),
+                      ListTile(
+                        leading: const Icon(Icons.camera_alt),
+                        title: Text('take_picture'.tr),
+                        onTap: () {
+                          authController.pickDmImage(
+                              true, false, ImageSource.camera);
+                          Navigator.pop(context);
+                        },
+                        // onTap: () => _getImage(context, ImageSource.camera),
+                      ),
+                    ],
+                  ),
+                );
+              });
+        }
 
         for (int index = 0; index < authController.dmTypeList.length; index++) {
           dmTypeList.add(DropdownItem<int>(
@@ -258,8 +297,12 @@ class _DeliveryManRegistrationScreenState
                                               top: 0,
                                               left: 0,
                                               child: InkWell(
-                                                onTap: () => authController
-                                                    .pickDmImage(true, false),
+                                                onTap: () {
+                                                  y(true, false);
+                                                },
+
+                                                //  authController
+                                                //     .pickDmImage(true, false),
                                                 child: DottedBorder(
                                                   color: Theme.of(context)
                                                       .primaryColor,
@@ -341,6 +384,9 @@ class _DeliveryManRegistrationScreenState
                                                   )
                                                 : const SizedBox(),
                                           ])),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
                                   const SizedBox(
                                       height: Dimensions.paddingSizeExtraLarge),
                                   Row(children: [
@@ -717,8 +763,9 @@ class _DeliveryManRegistrationScreenState
                                               authController
                                                   .pickedIdentities.length) {
                                             return InkWell(
-                                              onTap: () => authController
-                                                  .pickDmImage(false, false),
+                                              onTap: () {
+                                                y(false, false);
+                                              },
                                               child: DottedBorder(
                                                 color: Theme.of(context)
                                                     .primaryColor,
