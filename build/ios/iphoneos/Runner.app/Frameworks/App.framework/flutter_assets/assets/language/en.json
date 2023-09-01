@@ -12,6 +12,8 @@
   "enter_phone_number": "Enter your phone number",
   "invalid_phone_number": "Invalid phone number. Please enter your phone number without country code",
   "enter_password": "Enter your password",
+  "pick_from_gallery" : "Pick from the gallery",
+  "take_picture" : "Take a picture",
   "password_does_not_matched": "Confirm Password doesn't matched",
   "password_should_be": "Password should be greater than 6 characters",
   "otp_verification": "OTP Verification",

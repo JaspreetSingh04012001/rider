@@ -18,6 +18,7 @@ import 'package:efood_multivendor_driver/view/screens/auth/widget/pass_view.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:phone_number/phone_number.dart';
 
 class DeliveryManRegistrationScreen extends StatefulWidget {
@@ -114,7 +115,7 @@ class _DeliveryManRegistrationScreenState
                         title: Text('take_picture'.tr),
                         onTap: () {
                           authController.pickDmImage(
-                              true, false, ImageSource.camera);
+                              isLogo, isRemove, ImageSource.camera);
                           Navigator.pop(context);
                         },
                         // onTap: () => _getImage(context, ImageSource.camera),
@@ -227,6 +228,15 @@ class _DeliveryManRegistrationScreenState
                               Visibility(
                                 visible: authController.dmStatus == 0.4,
                                 child: Column(children: [
+                                  ElevatedButton.icon(
+                                      onPressed: () {
+                                        openAppSettings();
+                                      },
+                                      icon: const Icon(Icons.settings),
+                                      label: const Text(
+                                          "Give permission of Camera in Settings")),
+                                  const SizedBox(
+                                      height: Dimensions.paddingSizeSmall),
                                   Align(
                                       alignment: Alignment.center,
                                       child: Stack(
@@ -384,6 +394,9 @@ class _DeliveryManRegistrationScreenState
                                                   )
                                                 : const SizedBox(),
                                           ])),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
                                   const SizedBox(
                                     height: 5,
                                   ),

@@ -43,6 +43,7 @@ dependencies:
   path: ^1.8.2
   http_parser: ^4.0.2
   dotted_border: ^2.0.0+2
+  permission_handler: ^10.4.3
 
 dependency_overrides:
   modal_bottom_sheet: ^3.0.0-pre
