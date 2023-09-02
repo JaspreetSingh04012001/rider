@@ -614,18 +614,18 @@ class AuthController extends GetxController implements GetxService {
     }
   }
 
-  void pickDmImage(bool isLogo, bool isRemove , ImageSource? source) async {
+  void pickDmImage(bool isLogo, bool isRemove, ImageSource? source) async {
     if (isRemove) {
       _pickedImage = null;
       _pickedIdentities = [];
     } else {
       if (isLogo) {
-        _pickedImage =
-            await ImagePicker().pickImage(source: source ?? ImageSource.gallery);
+        _pickedImage = await ImagePicker()
+            .pickImage(source: source ?? ImageSource.gallery, imageQuality: 50);
         if (_pickedImage != null) print("jass ${_pickedImage!.path}");
       } else {
-        XFile? xFile =
-            await ImagePicker().pickImage(source: source ?? ImageSource.gallery);
+        XFile? xFile = await ImagePicker()
+            .pickImage(source: source ?? ImageSource.gallery, imageQuality: 50);
         if (xFile != null) {
           if (_pickedImage != null) print("jass ${_pickedImage!.path}");
           _pickedIdentities.add(xFile);
